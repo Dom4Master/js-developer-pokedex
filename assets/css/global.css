@@ -25,10 +25,14 @@ body {
     align-items: center;
 }
 
-.icon {
+.pokeball {
     margin: 1rem;
 }
 
+.seachIcon img {
+    width: 24px;
+    height: 24px;
+}
 
 @media screen and (min-width: 992px) {
     .content {
