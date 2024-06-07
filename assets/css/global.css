@@ -13,25 +13,95 @@ body {
 }
 
 .content {
-    width: 100vw;
-    height: 100vh;
-    padding: 1rem;
-    background-color: #DC0A2D;
+    padding: 4px;
+    background: #DC0A2D;
 }
 
-.container {
+.header {
     display: grid;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 12px;
+    padding-bottom: 24px;
+    gap: 8px;
+}
+
+.title {
+    width: 328px;
+    height: 60px;
+    gap: 16px;
+    display: flex;
     grid-template-columns: auto 1fr;
     align-items: center;
 }
 
-.pokeball {
-    margin: 1rem;
+.filters {
+    margin-left: 10px;
+    width: 362px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: center;
 }
 
-.seachIcon img {
-    width: 24px;
-    height: 24px;
+.searchBar {
+    display: flex;
+    width: 282px;
+    height: 64px;
+    background: white;
+    padding-left: 12px;
+    padding-right: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    gap: 8px;
+    align-items: center;
+}
+
+.searchButton {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;    
+    height: 64px;
+    background: transparent;
+    border: transparent;
+    border-radius: 32px;
+}
+
+.searchIcon {
+    width: 42px;
+    height: 42px;
+}
+
+input {
+    color: #666666;
+    background: transparent;
+    font-size: 20px;
+    width: 174px;
+    line-height: 16px;
+    border-color: transparent;
+    
+}
+
+.sortButton {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;    
+    height: 64px;
+    border: transparent;
+    border-radius: 32px;
+    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.tagIcon {
+    width: 42px;
+    height: 42px;
 }
 
 @media screen and (min-width: 992px) {
