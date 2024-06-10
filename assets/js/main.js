@@ -1,9 +1,12 @@
 const pokemonsList = document.getElementById('pokemonsList')
 const loadMoreButton = document.getElementById('loadMoreButton')
+const searchButton = document.getElementById('searchButton')
+const searchTerm = document.getElementById('searchTerm')
 
 const maxRecords = 151
 const limit = 10
 let offset = 0
+let parameter = null
 
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
@@ -43,5 +46,14 @@ loadMoreButton.addEventListener('click', () => {
     } else {
         loadPokemonItens(offset, limit)
     }
+    
+})
+
+searchButton.addEventListener('click', () => {
+    parameter = searchTerm.value.toLowerCase();
+    console.log(parameter)
+    console.log(typeof parameter)
+
+    pokeApi.searchPokemon(parameter) 
     
 })
