@@ -1,12 +1,10 @@
 const pokemonsList = document.getElementById('pokemonsList')
 const loadMoreButton = document.getElementById('loadMoreButton')
-const searchButton = document.getElementById('searchButton')
-const searchTerm = document.getElementById('searchTerm')
+const searchInput = document.getElementById('searchInput')
 
 const maxRecords = 151
-const limit = 10
-let offset = 0
-let parameter = null
+const limit = 151
+const offset = 0
 
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
@@ -32,6 +30,7 @@ function loadPokemonItens(offset, limit) {
 
 loadPokemonItens(offset, limit)
 
+/*
 loadMoreButton.addEventListener('click', () => {
     offset += limit
 
@@ -48,12 +47,23 @@ loadMoreButton.addEventListener('click', () => {
     }
     
 })
+*/
 
-searchButton.addEventListener('click', () => {
-    parameter = searchTerm.value.toLowerCase();
-    console.log(parameter)
-    console.log(typeof parameter)
-
-    pokeApi.searchPokemon(parameter) 
-    
-})
+function handleSearch() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const pokemonList = Array.from(pokemonsList.children);
+    const filteredPokemon = pokemonList.filter(pokemon => {
+      const pokemonName = pokemon.querySelector('.name').textContent.toLowerCase();
+      return pokemonName.startsWith(searchTerm);
+    });
+  
+    pokemonList.forEach(pokemon => {
+      if (filteredPokemon.includes(pokemon)) {
+        pokemon.style.display = 'block';
+      } else {
+        pokemon.style.display = 'none';
+      }
+    });
+  }
+  
+searchInput.addEventListener('keyup', handleSearch)

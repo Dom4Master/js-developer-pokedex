@@ -27,8 +27,6 @@ body {
 }
 
 .title {
-    width: 328px;
-    height: 60px;
     gap: 16px;
     display: flex;
     grid-template-columns: auto 1fr;
