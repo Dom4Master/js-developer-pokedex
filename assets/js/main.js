@@ -54,7 +54,10 @@ function handleSearch() {
     const pokemonList = Array.from(pokemonsList.children);
     const filteredPokemon = pokemonList.filter(pokemon => {
       const pokemonName = pokemon.querySelector('.name').textContent.toLowerCase();
-      return pokemonName.startsWith(searchTerm);
+      const pokemonNumber = pokemon.querySelector('.number').textContent.replace('#', '')
+      return pokemonName.startsWith(searchTerm) ||
+      pokemonNumber.startsWith(searchTerm) ||
+      pokemonNumber === searchTerm
     });
   
     pokemonList.forEach(pokemon => {
