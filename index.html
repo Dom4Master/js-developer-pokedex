@@ -45,9 +45,25 @@
                     
                 </div>
                 
-                <button class="sortButton" type="button">
+                <button id="sortButton" class="orderButton" type="button">
                     <img class="tagIcon" src="/assets/imgs/tagIcon.png" alt="tagIcon">
                 </button>
+            </div>
+            <div id="popUp" class="popUp">
+                <div class="popUpHeader">
+                    <h2>Sorted by: </h2>
+                </div>
+                <div class="popUpContent">
+                    <div class="orderByNumber">
+                        <input type="radio" name="order" id="number" checked>
+                        <label for="number">Number</label>
+                    </div>
+
+                    <div class="orderByName">
+                        <input type="radio" name="order" id="name">
+                        <label for="name">Name</label>
+                    </div>
+                </div>
             </div>
             
         </div>
