@@ -1,10 +1,13 @@
 const pokemonsList = document.getElementById('pokemonsList')
 const loadMoreButton = document.getElementById('loadMoreButton')
+const searchBar = document.getElementById('searchBar')
 const searchInput = document.getElementById('searchInput')
 const popUp = document.getElementById('popUp')
 const sortButton = document.getElementById('sortButton')
 const nameRadio = document.getElementById('name')
 const numberRadio = document.getElementById('number')
+const body = document.querySelector('body')
+const imgIcon = document.getElementById('tagIcon')
 
 const maxRecords = 151
 const limit = 151
@@ -75,18 +78,31 @@ function handleSearch() {
 
 searchInput.addEventListener('keyup', handleSearch)
 
-sortButton.addEventListener('click', () => {
-  popUp.classList.add('popup-in') // Adicionar classe para animação de entrada
-  popUp.style.display = 'block'
+searchInput.addEventListener('click', () => {
+  searchBar.style.boxShadow = '2px 2px 10px rgba(0, 0, 0, 0.5)'
+
+  // Adicionar evento de clique no corpo para fechar a barra de busca
+  body.addEventListener('click', (event) => {
+    if (!event.target.closest('#searchInput')) { // Verifica se o clique não foi no input de busca
+      searchBar.style.boxShadow = 'inset 2px 2px 10px rgba(0, 0, 0, 0.5)'
+    }
+  })
 })
 
-popUp.addEventListener('click', () => {
-  popUp.classList.add('popup-out') // Adicionar classe para animação de saída
-  setTimeout(() => {
-    popUp.style.display = 'none'
-    popUp.classList.remove('popup-in', 'popup-out') // Remover classes após a animação
-  }, 500)
-});
+sortButton.addEventListener('click', () => {
+  sortButton.style.boxShadow = '2px 2px 10px rgba(0, 0, 0, 0.5)'
+  popUp.classList.add('popup-in') // Adicionar classe para animação de entrada
+  popUp.style.display = 'block'
+
+  popUp.addEventListener('click', () => {
+    sortButton.style.boxShadow = 'inset 2px 2px 10px rgba(0, 0, 0, 0.5)'
+    popUp.classList.add('popup-out') // Adicionar classe para animação de saída
+    setTimeout(() => {
+      popUp.style.display = 'none'
+      popUp.classList.remove('popup-in', 'popup-out') // Remover classes após a animação
+    }, 500)
+  })
+})
 
 function organizePokemonsAlphabetically () {
   const pokemonItems = Array.from(pokemonsList.children)
@@ -101,6 +117,7 @@ function organizePokemonsAlphabetically () {
 }
 
 nameRadio.addEventListener('click', () => {
+  imgIcon.setAttribute('src', '/assets/imgs/textFormatIcon.png')
   organizePokemonsAlphabetically()
 })
 
@@ -116,5 +133,7 @@ function organizePokemonsNumerically () {
 }
 
 numberRadio.addEventListener('click', () => {
+  imgIcon.setAttribute('src', '/assets/imgs/tagIcon.png')
   organizePokemonsNumerically()
 })
+
