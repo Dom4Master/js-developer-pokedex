@@ -117,7 +117,7 @@ function organizePokemonsAlphabetically () {
 }
 
 nameRadio.addEventListener('click', () => {
-  imgIcon.setAttribute('src', '/assets/imgs/textFormatIcon.png')
+  imgIcon.setAttribute('src', 'assets/imgs/textFormatIcon.png')
   organizePokemonsAlphabetically()
 })
 
@@ -133,7 +133,7 @@ function organizePokemonsNumerically () {
 }
 
 numberRadio.addEventListener('click', () => {
-  imgIcon.setAttribute('src', '/assets/imgs/tagIcon.png')
+  imgIcon.setAttribute('src', 'assets/imgs/tagIcon.png')
   organizePokemonsNumerically()
 })
 
